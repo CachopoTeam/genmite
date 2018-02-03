@@ -11,7 +11,8 @@ npm install
 ## Run Examples
 
 1.- Create a folder demo
-2- Run a npm script like 
+
+2- Run a npm script like
 
 ```sh
   npm run generate:component:angular
