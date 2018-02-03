@@ -19,3 +19,8 @@ npm install
 ```
 
 3.- Enter as Destination folder "demo" and as component folder hello.
+
+
+## Authors
+
+***Design and Coding: Arturo Anguix López y Gabriel García Seco***
