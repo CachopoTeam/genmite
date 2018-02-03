@@ -1,0 +1,28 @@
+{
+  "extends": "tslint:recommended",
+  "rules": {
+    "quotemark": [
+      true,
+      "single",
+      "avoid-escape"
+    ],
+    "no-console": false,
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
+    ],
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": false,
+        "singleline": "never"
+      }
+    ],
+    "interface-name": false,
+    "object-literal-shorthand": false,
+    "variable-name": false
+  }
+}
