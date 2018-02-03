@@ -1,5 +1,7 @@
 # Code generator
 
+Tool to generate code, right now it's designed to build components.
+
 ## Install
 
 ```sh
@@ -30,7 +32,7 @@ npm install
 * [ ] Vue Component
 * [ ] Search for a cool NPM name
 * [ ] Tests 
-Tool to generate code, right now it's designed to build components.
+* [ ] Use a CSS utility for css classes in the components
 
 
 ## Authors
