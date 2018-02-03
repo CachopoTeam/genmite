@@ -1,4 +1,4 @@
-import { ComponentCrafter, PromptService } from './../src';
+const { ComponentCrafter, PromptService } = require('./../dist/code-generator.umd');
 import { MyAngularComponent } from './components';
 
 interface FoldersInterface {
@@ -16,7 +16,7 @@ function main(): void {
 
   const destinationFolder = 'Destination folder: ';
   const componentFolder = 'Component folder: ';
-  const prefix = 'app';
+  const prefix = 'my-app';
 
   PromptService.ask(destinationFolder).then((answer: string) => {
     folders.destination = answer.trim();

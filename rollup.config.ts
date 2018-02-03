@@ -15,7 +15,13 @@ export default {
   ],
   sourcemap: true,
   // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
-  external: [],
+  external: [
+    'fs',
+    'path',
+    'prettier',
+    'readline',
+    'child_process'
+  ],
   watch: {
     include: 'compiled/**',
   },

@@ -1,4 +1,4 @@
-import { ComponentCrafter, ExecCommandService, PromptService } from './../src';
+const { ComponentCrafter, ExecCommandService, PromptService } = require('./../dist/code-generator.umd');
 import { ReasonReactComponent } from './components';
 
 interface FoldersInterface {

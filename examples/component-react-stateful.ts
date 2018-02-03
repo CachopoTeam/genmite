@@ -1,4 +1,4 @@
-import { ComponentCrafter, PromptService } from './../src';
+const { ComponentCrafter, PromptService } = require('./../dist/code-generator.umd');
 
 interface FoldersInterface {
   destination: string;

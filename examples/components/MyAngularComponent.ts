@@ -1,11 +1,11 @@
-import {
+const {
   AngularUtils,
   Component,
   FileTypes,
   HTMLDefaultParser,
   SCSSDefaultParser,
   TypescriptDefaultParser
-} from './../../src';
+ } = require('./../../dist/code-generator.umd');
 
 export class MyAngularComponent extends Component {
   private angularUtils: AngularUtils;

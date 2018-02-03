@@ -1,4 +1,6 @@
-import { Component, CSSDefaultParser, FileTypes, NullParser, PrettierParser } from '../../src';
+const {
+  Component, CSSDefaultParser, FileTypes, NullParser, PrettierParser
+} = require('./../../dist/code-generator.umd');
 
 export class ReasonReactComponent extends Component {
 
