@@ -23,13 +23,13 @@ npm install
 
 4.- Enter as Destination folder "demo" and as component folder hello.
 
-#TODOS
-* [] Generate build && publish to NPM
-* [] See how it works with JS
-* [] CLI
-* [] Vue Component
-* [] Search for a cool NPM name
-* [] Tests 
+## TODOS
+* [ ] Generate build && publish to NPM
+* [ ] See how it works with JS
+* [ ] CLI
+* [ ] Vue Component
+* [ ] Search for a cool NPM name
+* [ ] Tests 
 Tool to generate code, right now it's designed to build components.
 
 
