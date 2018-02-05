@@ -1,3 +1,4 @@
+import * as path from 'path';
 import { Component, PrettierParser, TypeInterface } from './../../src';
 
 describe('Component suite', () => {
@@ -6,6 +7,7 @@ describe('Component suite', () => {
   const componentFolder = 'article';
   const code = 'var a = 3';
   const fileName = 'article';
+  const separator = path.sep;
   const type: TypeInterface = {
     fileExtension: '.js',
     parser: new PrettierParser()
@@ -17,9 +19,9 @@ describe('Component suite', () => {
     fileName: string;
     fileExtension: string;
   }) => {
-    return `${path.destinationFolder}/${path.componentFolder}/${path.fileName}${
-      path.fileExtension
-    }`;
+    return `${path.destinationFolder}${separator}${path.componentFolder}${separator}${
+      path.fileName
+    }${path.fileExtension}`;
   };
 
   const fullPath = getFullPath({
@@ -54,7 +56,7 @@ describe('Component suite', () => {
   });
 
   it('should get the path combining destinationFolder and componentFolder', () => {
-    expect(comp.getFolder()).toBe(`${destinationFolder}/${componentFolder}`);
+    expect(comp.getFolder()).toBe(`${destinationFolder}${separator}${componentFolder}`);
   });
 
   it('should return the componentFolder', () => {

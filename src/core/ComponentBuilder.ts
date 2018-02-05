@@ -1,5 +1,4 @@
 import { ComponentBuilderInterface, ComponentInterface } from './../interfaces';
-import { FileSystem } from './FileSystem';
 import { FileSystemWrapper } from './FileSystemWrapper';
 
 export class ComponentBuilder implements ComponentBuilderInterface {
@@ -15,7 +14,7 @@ export class ComponentBuilder implements ComponentBuilderInterface {
     }
     this.fileSystemWrapper.createDirectory(component.getFolder());
     const files = component.getFiles();
-    files.map((file) => {
+    files.map(file => {
       this.fileSystemWrapper.createFile(file);
     });
   }

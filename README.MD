@@ -17,7 +17,7 @@ npm install
 
 2.- Create a folder demo
 
-3- Run a npm script like
+3.- Run a npm script like
 
 ```sh
   npm run generate:component:angular
@@ -31,10 +31,10 @@ npm install
 * [ ] CLI
 * [ ] Vue Component
 * [ ] Search for a cool NPM name
-* [ ] Tests 
+* [ ] Tests
 * [ ] Use a CSS utility for css classes in the components
 
 
 ## Authors
 
-***Design and Coding: Arturo Anguix López y Gabriel García Seco***
+***Design and Coding: Arturo Anguix López & Gabriel García Seco***
