@@ -1,5 +1,5 @@
 const {
-  Component, CSSDefaultParser, FileTypes, NullParser, PrettierParser
+  Component, CSSDefaultParser, FileTypes, NullParser
 } = require('./../../dist/code-generator.umd');
 
 export class ReasonReactComponent extends Component {

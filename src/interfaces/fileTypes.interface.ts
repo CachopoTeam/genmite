@@ -1,4 +1,3 @@
-import { BuiltInParserName } from 'prettier';
 import { FileParserInterface } from './index';
 
 export interface TypeInterface {

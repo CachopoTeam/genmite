@@ -1,8 +1,4 @@
-import {
-  FileInterface,
-  FileParserInterface,
-  FileSystemWrapperInterface
-} from './../interfaces';
+import { FileInterface, FileSystemWrapperInterface } from './../interfaces';
 import { FileSystem } from './FileSystem';
 
 export class FileSystemWrapper implements FileSystemWrapperInterface {
