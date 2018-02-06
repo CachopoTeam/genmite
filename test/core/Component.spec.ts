@@ -13,15 +13,15 @@ describe('Component suite', () => {
     parser: new PrettierParser()
   };
 
-  const getFullPath = (path: {
+  const getFullPath = (pathObject: {
     destinationFolder: string;
     componentFolder: string;
     fileName: string;
     fileExtension: string;
   }) => {
-    return `${path.destinationFolder}${separator}${path.componentFolder}${separator}${
-      path.fileName
-    }${path.fileExtension}`;
+    return `${pathObject.destinationFolder}${separator}${pathObject.componentFolder}${separator}${
+      pathObject.fileName
+    }${pathObject.fileExtension}`;
   };
 
   const fullPath = getFullPath({
