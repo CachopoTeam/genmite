@@ -5,7 +5,7 @@ const {
   HTMLDefaultParser,
   SCSSDefaultParser,
   TypescriptDefaultParser
- } = require('./../../dist/code-generator.umd');
+ } = require('./../../dist/genmite.umd');
 
 export class MyAngularComponent extends Component {
   private angularUtils: AngularUtils;

@@ -1,4 +1,4 @@
-const { ComponentCrafter, ExecCommandService, PromptService } = require('./../dist/code-generator.umd');
+const { ComponentCrafter, ExecCommandService, PromptService } = require('./../dist/genmite.umd');
 import { ReasonReactComponent } from './components';
 
 interface FoldersInterface {

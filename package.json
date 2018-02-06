@@ -1,11 +1,11 @@
 {
-  "name": "code-generator",
+  "name": "genmite",
   "version": "0.1.0",
   "description": "",
   "keywords": [],
-  "main": "dist/code-generator.umd.js",
-  "module": "dist/code-generator.es5.js",
-  "typings": "dist/types/code-generator.d.ts",
+  "main": "dist/genmite.umd.js",
+  "module": "dist/genmite.es5.js",
+  "typings": "dist/types/genmite.d.ts",
   "files": [
     "dist"
   ],
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/gabrielseco/code-generator.git"
+    "url": "https://github.com/gabrielseco/genmite.git"
   },
   "license": "MIT",
   "engines": {

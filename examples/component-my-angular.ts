@@ -1,4 +1,4 @@
-const { ComponentCrafter, PromptService } = require('./../dist/code-generator.umd');
+const { ComponentCrafter, PromptService } = require('./../dist/genmite.umd');
 import { MyAngularComponent } from './components';
 
 interface FoldersInterface {

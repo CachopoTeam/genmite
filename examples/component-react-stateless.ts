@@ -1,4 +1,4 @@
-const { ComponentCrafter, PromptService } = require('./../dist/code-generator.umd');
+const { ComponentCrafter, PromptService } = require('./../dist/genmite.umd');
 
 interface FoldersInterface {
   destination: string;
