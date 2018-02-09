@@ -14,4 +14,12 @@ describe('Angular utils suite', () => {
     const className = 'AppComponent';
     expect(utils.generateClassName(name)).toBe(className);
   });
+
+  it('should create the className for a service', () => {
+    const utils = new AngularUtils();
+    const name = 'user';
+    const type = 'Service';
+    const className = 'UserService';
+    expect(utils.generateClassName(name, type)).toBe(className);
+  });
 });
