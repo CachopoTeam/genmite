@@ -28,12 +28,7 @@ npm install
 4.- Enter as Destination folder "demo" and as component folder hello.
 
 ## TODOS
-* [ ] Generate build && publish to NPM
-* [ ] See how it works with JS
 * [ ] CLI
-* [ ] Vue Component
-* [ ] Search for a cool NPM name
-* [ ] Tests
 * [ ] Use a CSS utility for css classes in the components
 
 
