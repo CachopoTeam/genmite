@@ -1,19 +1,19 @@
 export class AngularUtils {
-  generateClassName(name: string): string {
+  generateClassName(name: string, suffix?: string): string {
     const INDEX_0 = 0;
     const DASH = '-';
     const types = {
       CHARACTER: 'CHARACTER',
       DASH: 'DASH'
     };
-    const COMPONENT_SUFFIX = 'Component';
+    const SUFFIX = suffix || 'Component';
     let SPACELOOP = false;
 
     return (
       name
         .split('')
         .map(
-          (item) =>
+          item =>
             item !== DASH
               ? {
                   type: types.CHARACTER,
@@ -40,7 +40,7 @@ export class AngularUtils {
 
           return character.value;
         })
-        .join('') + COMPONENT_SUFFIX
+        .join('') + SUFFIX
     );
   }
 }

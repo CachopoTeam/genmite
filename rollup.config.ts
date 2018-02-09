@@ -5,10 +5,10 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 
 const pkg = require('./package.json');
 
-const libraryName = 'index';
+const libraryName = 'genmite';
 
 export default {
-  input: `compiled/${libraryName}.js`,
+  input: `compiled/index.js`,
   output: [
     { file: pkg.main, name: camelCase(libraryName), format: 'umd' },
     { file: pkg.module, format: 'es' },
