@@ -1,13 +1,11 @@
-# Code generator
-
-[![NPM Version](https://img.shields.io/npm/v/genmite.svg)](https://www.npmjs.com/package/genmite) [![NPM Downloads](https://img.shields.io/npm/dm/genmite.svg)](https://www.npmjs.com/package/genmite)
+# Genmite [![NPM Version](https://img.shields.io/npm/v/genmite.svg)](https://www.npmjs.com/package/genmite) [![NPM Downloads](https://img.shields.io/npm/dm/genmite.svg)](https://www.npmjs.com/package/genmite)
 
 Tool to generate code, right now it's designed to build components.
 
 ## Install
 
 ```sh
-npm install
+npm install --save-dev
 ```
 
 ## Run Examples
