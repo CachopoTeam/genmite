@@ -16,6 +16,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "genmite": "^1.0.1"
+    "genmite": "^1.0.2"
   }
 }
