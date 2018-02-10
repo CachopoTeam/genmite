@@ -1,15 +1,10 @@
-const { ComponentCrafter, ExecCommandService, PromptService } = require('./../dist/genmite.umd');
-import { ReasonReactComponent } from './components';
-
-interface FoldersInterface {
-  destination: string;
-  component: string;
-}
+const { ComponentCrafter, ExecCommandService, PromptService } = require('genmite');
+const ReasonReactComponent = require('./ReasonReactComponent');
 
 main();
 
-function main(): void {
-  const folders: FoldersInterface = {
+function main() {
+  const folders = {
     destination: '',
     component: ''
   };
@@ -17,18 +12,18 @@ function main(): void {
   const destinationFolder = 'Destination folder: ';
   const componentFolder = 'Component folder: ';
 
-  PromptService.ask(destinationFolder).then((answer: string) => {
+  PromptService.ask(destinationFolder).then(answer => {
     folders.destination = answer.trim();
     return PromptService.ask(componentFolder);
   })
-  .then((answer: string) => {
+  .then(answer => {
     folders.component = answer.trim();
     createComponent(folders);
   });
 
 }
 
-function createComponent(folders: FoldersInterface): void {
+function createComponent(folders) {
   const { destination, component } = folders;
   const service = new ComponentCrafter();
   const comp = new ReasonReactComponent(destination, component);
