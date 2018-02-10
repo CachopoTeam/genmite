@@ -10,20 +10,12 @@ npm install --save-dev
 
 ## Run Examples
 
-1.- Build the project
-```sh
-  npm run build
-```
+There are several examples with a scripts folder to generate components
 
-2.- Create a folder demo
+We have examples for angular-cli, create-react-app and for reason environments
 
-3.- Run a npm script like
-
-```sh
-  npm run generate:component:angular
-```
-
-4.- Enter as Destination folder "demo" and as component folder hello.
+To create components the only thing you have to do is, go to the package.json of each
+folder and see the command to generate components.
 
 ## TODOS
 * [ ] CLI
