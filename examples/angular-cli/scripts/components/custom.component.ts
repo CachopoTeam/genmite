@@ -1,13 +1,13 @@
-const {
+import {
   AngularUtils,
   Component,
   FileTypes,
   HTMLDefaultParser,
   SCSSDefaultParser,
   TypescriptDefaultParser
- } = require('./../../dist/genmite.umd');
+ } from 'genmite';
 
-export class MyAngularComponent extends Component {
+export class CustomComponent extends Component {
   private angularUtils: AngularUtils;
   private prefix: string;
 

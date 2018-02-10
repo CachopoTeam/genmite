@@ -11,11 +11,7 @@ export class AngularComponent extends Component {
   private angularUtils: AngularUtils;
   private prefix: string;
 
-  constructor(
-    destinationFolder: string,
-    componentFolder: string,
-    prefix: string
-  ) {
+  constructor(destinationFolder: string, componentFolder: string, prefix: string) {
     super(destinationFolder, componentFolder);
     this.angularUtils = new AngularUtils();
     this.prefix = prefix;
@@ -24,14 +20,8 @@ export class AngularComponent extends Component {
   init(): void {
     const fileTypes = new FileTypes();
     const indexTsType = fileTypes.add('.ts', TypescriptDefaultParser());
-    const componentTsType = fileTypes.add(
-      '.component.ts',
-      TypescriptDefaultParser()
-    );
-    const specTsType = fileTypes.add(
-      '.component.spec.ts',
-      TypescriptDefaultParser()
-    );
+    const componentTsType = fileTypes.add('.component.ts', TypescriptDefaultParser());
+    const specTsType = fileTypes.add('.component.spec.ts', TypescriptDefaultParser());
     const htmlType = fileTypes.add('.component.html', HTMLDefaultParser());
     const cssType = fileTypes.add('.component.css', CSSDefaultParser());
     const componentFolder = this.getComponentFolder();
@@ -46,18 +36,14 @@ export class AngularComponent extends Component {
     this.add(cssType, this.defaultAngularCSS(componentFolder));
   }
 
-  private defaultAngularComponent(
-    component: string,
-    className: string,
-    prefix: string
-  ): string {
+  private defaultAngularComponent(component: string, className: string, prefix: string): string {
     return `
       import { Component, OnInit } from '@angular/core';
 
       @Component({
         selector: '${prefix}-${component}',
         templateUrl: './${component}.component.html',
-        styleUrls: ['./${component}.component.scss'],
+        styleUrls: ['./${component}.component.css'],
       })
       export class ${className} implements OnInit {
         constructor(){}

@@ -23,10 +23,6 @@
   },
   "scripts": {
     "coverage:open": "open ./coverage/lcov-report/index.html",
-    "generate:component:angular": "ts-node examples/component-angular.ts",
-    "generate:component:my-angular": "ts-node examples/component-my-angular.ts",
-    "generate:component:react:stateful": "ts-node examples/component-react-stateful.ts",
-    "generate:component:react:stateless": "ts-node examples/component-react-stateless.ts",
     "generate:component:reason": "ts-node examples/component-reason.ts",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
@@ -64,11 +60,14 @@
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/examples/"
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",

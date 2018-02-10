@@ -1,24 +1,23 @@
 const {
   Component, CSSDefaultParser, FileTypes, NullParser
-} = require('./../../dist/genmite.umd');
+} = require('genmite');
 
-export class ReasonReactComponent extends Component {
+class ReasonReactComponent extends Component {
 
-  constructor(destinationFolder: string, componentFolder: string) {
+  constructor(destinationFolder, componentFolder) {
     super(destinationFolder, componentFolder);
   }
 
-  init(): void {
+  init() {
     const fileTypes = new FileTypes();
     const reType = fileTypes.add('.re', new NullParser());
     const cssType = fileTypes.add('.css', CSSDefaultParser());
 
     this.add(reType, this.defaultReason(this.getComponentFolder()));
     this.add(cssType, this.defaultCSS(this.getComponentFolder()));
-
   }
 
-  private defaultReason(component: string): string {
+  defaultReason(component) {
     return `
       let component = ReasonReact.statelessComponent("${component}");
 
@@ -27,15 +26,17 @@ export class ReasonReactComponent extends Component {
       let make = (~message, _children) => {
         ...component,
         render: (self) =>
-          <div className="demo" onClick=(self.handle(handleClick))> (ReasonReact.stringToElement(message)) </div>
+          <button className="demo" onClick=(self.handle(handleClick))> (ReasonReact.stringToElement(message)) </button>
       };
     `;
   }
 
-  private defaultCSS(component: string): string {
+  defaultCSS(component) {
     return `
       .${component}{}
     `;
   }
-
 }
+
+
+module.exports = ReasonReactComponent;
