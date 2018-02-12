@@ -24,4 +24,4 @@ folder and see the command to generate components.
 
 ## Authors
 
-***Design and Coding: Arturo Anguix López & Gabriel García Seco***
+*** Design and Coding: Arturo Anguix López & Gabriel García Seco ***
