@@ -1,9 +1,6 @@
-import {
-  Component,
-  CSSDefaultParser,
-  FileTypes,
-  PrettierParser
-} from '../../core';
+import { Component, CSSDefaultParser, PrettierParser } from '../../core';
+
+import { TypeInterface } from './../../interfaces';
 
 export class ReactStatelessComponent extends Component {
   constructor(destinationFolder: string, componentFolder: string) {
@@ -12,20 +9,27 @@ export class ReactStatelessComponent extends Component {
 
   init(): void {
     const prettierParser = new PrettierParser();
-    const fileTypes = new FileTypes();
-    const jsType = fileTypes.add('.js', prettierParser);
-    const specJsType = fileTypes.add('.spec.js', prettierParser);
-    const cssType = fileTypes.add('.css', CSSDefaultParser());
+    const jsType: TypeInterface = {
+      fileExtension: '.js',
+      parser: prettierParser
+    };
+
+    const specJsType: TypeInterface = {
+      fileExtension: 'spec.js',
+      parser: prettierParser
+    };
+
+    const cssType: TypeInterface = {
+      fileExtension: '.css',
+      parser: CSSDefaultParser()
+    };
+
     const componentFolder = this.getComponentFolder();
     const classNameCSS = componentFolder.toLowerCase();
 
     this.add(jsType, this.defaultReactJS(componentFolder, componentFolder.toLowerCase()));
     this.add(cssType, this.defaultReactCSS(classNameCSS));
-    this.add(
-      jsType,
-      this.defaultReactIndex(componentFolder),
-      'index'
-    );
+    this.add(jsType, this.defaultReactIndex(componentFolder), 'index');
     this.add(specJsType, this.defaultReactSpec(componentFolder));
   }
 

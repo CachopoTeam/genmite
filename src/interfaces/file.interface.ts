@@ -1,4 +1,4 @@
-import { TypeInterface } from './fileTypes.interface';
+import { TypeInterface } from './type.interface';
 
 export interface FileInterface {
   code: string;

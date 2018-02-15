@@ -1,10 +1,10 @@
 import {
   Component,
   CSSDefaultParser,
-  FileTypes,
   HTMLDefaultParser,
   TypescriptDefaultParser
 } from '../../core';
+import { TypeInterface } from '../../interfaces';
 import { AngularUtils } from './AngularUtils';
 
 export class AngularComponent extends Component {
@@ -18,12 +18,30 @@ export class AngularComponent extends Component {
   }
 
   init(): void {
-    const fileTypes = new FileTypes();
-    const indexTsType = fileTypes.add('.ts', TypescriptDefaultParser());
-    const componentTsType = fileTypes.add('.component.ts', TypescriptDefaultParser());
-    const specTsType = fileTypes.add('.component.spec.ts', TypescriptDefaultParser());
-    const htmlType = fileTypes.add('.component.html', HTMLDefaultParser());
-    const cssType = fileTypes.add('.component.css', CSSDefaultParser());
+    const indexTsType: TypeInterface = {
+      fileExtension: '.ts',
+      parser: TypescriptDefaultParser()
+    };
+    const componentTsType: TypeInterface = {
+      fileExtension: '.component.ts',
+      parser: TypescriptDefaultParser()
+    };
+
+    const specTsType: TypeInterface = {
+      fileExtension: '.component.spec.ts',
+      parser: TypescriptDefaultParser()
+    };
+
+    const htmlType: TypeInterface = {
+      fileExtension: '.component.html',
+      parser: HTMLDefaultParser()
+    };
+
+    const cssType: TypeInterface = {
+      fileExtension: '.component.css',
+      parser: CSSDefaultParser()
+    };
+
     const componentFolder = this.getComponentFolder();
     const className = this.angularUtils.generateClassName(componentFolder);
     this.add(

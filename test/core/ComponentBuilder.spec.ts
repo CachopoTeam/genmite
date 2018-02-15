@@ -1,4 +1,5 @@
-import { Component, ComponentBuilder, FileSystem, FileSystemWrapper, ReactStatefulComponent } from './../../src';
+import { Component, ReactStatefulComponent } from './../../src';
+import { ComponentBuilder, FileSystem, FileSystemWrapper } from './../../src/core';
 
 describe('ComponentBuilder suite', () => {
   const destinationFolder = 'demo';
@@ -18,8 +19,7 @@ describe('ComponentBuilder suite', () => {
   });
 
   it('should build the component', () => {
-    spyOn(fileSystem, 'exists')
-      .and.returnValue(true);
+    spyOn(fileSystem, 'exists').and.returnValue(true);
     componentBuilder.build(component);
     expect(fileSystem.exists).toHaveBeenCalledWith(destinationFolder);
     expect(fileSystem.createDirectory).toHaveBeenCalledWith(component.getFolder());
@@ -27,8 +27,7 @@ describe('ComponentBuilder suite', () => {
   });
 
   it('should build the component but should throw an error', () => {
-    spyOn(fileSystem, 'exists')
-      .and.returnValue(false);
+    spyOn(fileSystem, 'exists').and.returnValue(false);
     expect(() => componentBuilder.build(component)).toThrowError();
   });
 });
