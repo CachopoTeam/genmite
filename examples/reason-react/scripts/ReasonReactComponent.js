@@ -1,5 +1,5 @@
 const {
-  Component, CSSDefaultParser, FileTypes, NullParser
+  Component, CSSDefaultParser, NullParser
 } = require('genmite');
 
 class ReasonReactComponent extends Component {
@@ -9,9 +9,15 @@ class ReasonReactComponent extends Component {
   }
 
   init() {
-    const fileTypes = new FileTypes();
-    const reType = fileTypes.add('.re', new NullParser());
-    const cssType = fileTypes.add('.css', CSSDefaultParser());
+    const reType = {
+      fileExtension: '.re',
+      parser: new NullParser()
+    };
+    
+    const cssType = {
+      fileExtension: '.css',
+      parser: CSSDefaultParser()
+    };
 
     this.add(reType, this.defaultReason(this.getComponentFolder()));
     this.add(cssType, this.defaultCSS(this.getComponentFolder()));

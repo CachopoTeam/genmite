@@ -1,5 +1,6 @@
-import { TypeInterface } from '../../src/interfaces';
-import { FileInterface, FileSystem, FileSystemWrapper, PrettierParser } from './../../src';
+import { PrettierParser, TypeInterface } from './../../src';
+import { FileSystem, FileSystemWrapper } from './../../src/core';
+import { FileInterface } from './../../src/interfaces';
 
 describe('FileSystemWrapper', () => {
   let fileSystem: FileSystem;
@@ -41,5 +42,4 @@ describe('FileSystemWrapper', () => {
     fileSystemWrapper.createFile(file);
     expect(fileSystem.createFile).toHaveBeenCalledWith(file.path, parsedCode);
   });
-
 });

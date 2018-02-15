@@ -1,10 +1,10 @@
 import {
   AngularUtils,
   Component,
-  FileTypes,
   HTMLDefaultParser,
   SCSSDefaultParser,
-  TypescriptDefaultParser
+  TypeInterface,
+  TypescriptDefaultParser,
  } from 'genmite';
 
 export class CustomComponent extends Component {
@@ -22,18 +22,29 @@ export class CustomComponent extends Component {
   }
 
   init(): void {
-    const fileTypes = new FileTypes();
-    const indexTsType = fileTypes.add('.ts', TypescriptDefaultParser());
-    const componentTsType = fileTypes.add(
-      '.component.ts',
-      TypescriptDefaultParser()
-    );
-    const specTsType = fileTypes.add(
-      '.component.spec.ts',
-      TypescriptDefaultParser()
-    );
-    const htmlType = fileTypes.add('.component.html', HTMLDefaultParser());
-    const cssType = fileTypes.add('.component.scss', SCSSDefaultParser());
+    const indexTsType: TypeInterface = {
+      fileExtension: '.ts',
+      parser: TypescriptDefaultParser()
+    };
+    const componentTsType: TypeInterface = {
+      fileExtension: '.component.ts',
+      parser: TypescriptDefaultParser()
+    };
+
+    const specTsType: TypeInterface = {
+      fileExtension: '.component.spec.ts',
+      parser: TypescriptDefaultParser()
+    };
+
+    const htmlType: TypeInterface = {
+      fileExtension: '.component.html',
+      parser: HTMLDefaultParser()
+    };
+
+    const scssType: TypeInterface = {
+      fileExtension: '.component.css',
+      parser: SCSSDefaultParser()
+    };
     const componentFolder = this.getComponentFolder();
     const className = this.angularUtils.generateClassName(componentFolder);
     this.add(
@@ -43,7 +54,7 @@ export class CustomComponent extends Component {
     this.add(indexTsType, this.defaultAngularIndex(componentFolder), 'index');
     this.add(specTsType, this.defaultAngularSpec(componentFolder, className));
     this.add(htmlType, this.defaultAngularHTML(componentFolder, className));
-    this.add(cssType, this.defaultAngularSCSS(componentFolder));
+    this.add(scssType, this.defaultAngularSCSS(componentFolder));
   }
 
   private defaultAngularComponent(
