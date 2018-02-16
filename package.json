@@ -1,6 +1,6 @@
 {
   "name": "genmite",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "",
   "keywords": [],
   "main": "dist/genmite.umd.js",
@@ -74,10 +74,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 50,
-        "functions": 50,
-        "lines": 50,
-        "statements": 50
+        "branches": 60,
+        "functions": 60,
+        "lines": 60,
+        "statements": 60
       }
     },
     "collectCoverage": true,

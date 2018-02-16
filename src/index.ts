@@ -4,6 +4,9 @@ export {
   ReactStatefulComponent,
   ReactStatelessComponent
 } from './components';
+
+export { configDefault } from './config';
+
 export {
   Component,
   ComponentCrafter,
@@ -16,4 +19,5 @@ export {
   SCSSDefaultParser,
   TypescriptDefaultParser
 } from './core';
-export { ComponentInterface, TypeInterface } from './interfaces';
+
+export { ConfigInterface, ComponentInterface, TypeInterface } from './interfaces';

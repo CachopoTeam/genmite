@@ -1,57 +1,40 @@
-import { ComponentBuilder, FileSystem, FileSystemWrapper } from '.';
-import {
-  AngularComponent,
-  ReactStatefulComponent,
-  ReactStatelessComponent
-} from './../components';
-import { ComponentInterface } from './../interfaces/component.interface';
+import { configDefault } from '../config';
+import { AngularComponent, ReactStatefulComponent, ReactStatelessComponent } from './../components';
+import { ComponentBuilder, DirectoryBuilder, FileSystem, FileSystemWrapper } from './../core';
+import { ComponentInterface, ConfigInterface } from './../interfaces';
 
 export class ComponentCrafter {
-  createReactStatefulComponent(
-    destinationFolder: string,
-    componentFolder: string
-  ): void {
-    const component = new ReactStatefulComponent(
-      destinationFolder,
-      componentFolder
-    );
+  createReactStatefulComponent(destinationFolder: string, componentFolder: string): void {
+    const component = new ReactStatefulComponent(destinationFolder, componentFolder);
     component.init();
-    this.create(component);
+    this.create(component, configDefault);
   }
 
-  createReactStatelessComponent(
-    destinationFolder: string,
-    componentFolder: string
-  ): void {
-    const component = new ReactStatelessComponent(
-      destinationFolder,
-      componentFolder
-    );
+  createReactStatelessComponent(destinationFolder: string, componentFolder: string): void {
+    const component = new ReactStatelessComponent(destinationFolder, componentFolder);
     component.init();
-    this.create(component);
+    this.create(component, configDefault);
   }
 
-  createAngularComponent(
-    destinationFolder: string,
-    componentFolder: string,
-    prefix: string
-  ): void {
-    const component = new AngularComponent(
-      destinationFolder,
-      componentFolder,
-      prefix
-    );
+  createAngularComponent(destinationFolder: string, componentFolder: string, prefix: string): void {
+    const component = new AngularComponent(destinationFolder, componentFolder, prefix);
     component.init();
-    this.create(component);
+    this.create(component, configDefault);
   }
 
   createCustom(component: ComponentInterface): void {
     component.init();
-    this.create(component);
+    this.create(component, component.getConfig());
   }
 
-  protected create(component: ComponentInterface): void {
-    const builder = new ComponentBuilder(new FileSystemWrapper(new FileSystem()));
+  protected create(component: ComponentInterface, config: ConfigInterface): void {
+    const { createFolder } = config;
+    const fileSystem = new FileSystemWrapper(new FileSystem());
+    if (createFolder) {
+      const directoryBuilder = new DirectoryBuilder(fileSystem);
+      directoryBuilder.build(component);
+    }
+    const builder = new ComponentBuilder(fileSystem);
     builder.build(component);
   }
 }
