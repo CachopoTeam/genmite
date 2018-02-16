@@ -26,9 +26,12 @@ function main() {
 function createComponent(folders) {
   const { destination, component } = folders;
   const service = new ComponentCrafter();
-  const comp = new ReasonReactComponent(destination, component);
+  const config = {
+    createFolder: false
+  };
+  const comp = new ReasonReactComponent(destination, component, config);
   service.createCustom(comp);
   ExecCommandService.execute('refmt', [
-    '--in-place', `${destination}/${component}/${component}.re`
+    '--in-place', `${destination}/${component}.re`
   ]);
 }

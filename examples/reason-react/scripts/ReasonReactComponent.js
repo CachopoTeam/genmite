@@ -4,8 +4,8 @@ const {
 
 class ReasonReactComponent extends Component {
 
-  constructor(destinationFolder, componentFolder) {
-    super(destinationFolder, componentFolder);
+  constructor(destinationFolder, componentFolder, config) {
+    super(destinationFolder, componentFolder, config);
   }
 
   init() {

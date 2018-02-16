@@ -1,4 +1,4 @@
-const { ComponentCrafter, PromptService } = require('genmite');
+import { ComponentCrafter, PromptService } from 'genmite';
 
 interface FoldersInterface {
   destination: string;
