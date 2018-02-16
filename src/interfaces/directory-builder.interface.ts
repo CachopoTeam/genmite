@@ -1,4 +1,4 @@
 import { ComponentInterface } from './component.interface';
-export interface FolderBuilderInterface {
+export interface DirectoryBuilderInterface {
   build(component: ComponentInterface): void;
 }

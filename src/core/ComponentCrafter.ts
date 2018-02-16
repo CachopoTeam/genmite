@@ -1,8 +1,7 @@
 import { configDefault } from '../config';
 import { AngularComponent, ReactStatefulComponent, ReactStatelessComponent } from './../components';
-import { ComponentBuilder, FileSystem, FileSystemWrapper } from './../core';
+import { ComponentBuilder, DirectoryBuilder, FileSystem, FileSystemWrapper } from './../core';
 import { ComponentInterface, ConfigInterface } from './../interfaces';
-import { FolderBuilder } from './FolderBuilder';
 
 export class ComponentCrafter {
   createReactStatefulComponent(destinationFolder: string, componentFolder: string): void {
@@ -32,8 +31,8 @@ export class ComponentCrafter {
     const { createFolder } = config;
     const fileSystem = new FileSystemWrapper(new FileSystem());
     if (createFolder) {
-      const folderBuilder = new FolderBuilder(fileSystem);
-      folderBuilder.build(component);
+      const directoryBuilder = new DirectoryBuilder(fileSystem);
+      directoryBuilder.build(component);
     }
     const builder = new ComponentBuilder(fileSystem);
     builder.build(component);

@@ -22,7 +22,6 @@ describe('ComponentBuilder suite', () => {
     spyOn(fileSystem, 'exists').and.returnValue(true);
     componentBuilder.build(component);
     expect(fileSystem.exists).toHaveBeenCalledWith(destinationFolder);
-    expect(fileSystem.createDirectory).toHaveBeenCalledWith(component.getFolder());
     expect(fileSystemWrapper.createFile).toHaveBeenCalledTimes(4);
   });
 
