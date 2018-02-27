@@ -1,5 +1,5 @@
 import * as nodePath from 'path';
-import { configDefault } from '../config';
+import { defaultConfig } from '../config';
 import { ComponentInterface, ConfigInterface, FileInterface, TypeInterface } from './../interfaces';
 
 export class Component implements ComponentInterface {
@@ -11,7 +11,7 @@ export class Component implements ComponentInterface {
   constructor(destinationFolder: string, componentFolder: string, config?: ConfigInterface) {
     this.destinationFolder = destinationFolder;
     this.componentFolder = componentFolder;
-    this.config = config || configDefault;
+    this.config = config || defaultConfig;
     this.files = [];
   }
 

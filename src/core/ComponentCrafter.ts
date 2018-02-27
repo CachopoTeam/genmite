@@ -1,4 +1,4 @@
-import { configDefault } from '../config';
+import { defaultConfig } from '../config';
 import { AngularComponent, ReactStatefulComponent, ReactStatelessComponent } from './../components';
 import { ComponentBuilder, DirectoryBuilder, FileSystem, FileSystemWrapper } from './../core';
 import { ComponentInterface, ConfigInterface } from './../interfaces';
@@ -7,19 +7,19 @@ export class ComponentCrafter {
   createReactStatefulComponent(destinationFolder: string, componentFolder: string): void {
     const component = new ReactStatefulComponent(destinationFolder, componentFolder);
     component.init();
-    this.create(component, configDefault);
+    this.create(component, defaultConfig);
   }
 
   createReactStatelessComponent(destinationFolder: string, componentFolder: string): void {
     const component = new ReactStatelessComponent(destinationFolder, componentFolder);
     component.init();
-    this.create(component, configDefault);
+    this.create(component, defaultConfig);
   }
 
   createAngularComponent(destinationFolder: string, componentFolder: string, prefix: string): void {
     const component = new AngularComponent(destinationFolder, componentFolder, prefix);
     component.init();
-    this.create(component, configDefault);
+    this.create(component, defaultConfig);
   }
 
   createCustom(component: ComponentInterface): void {

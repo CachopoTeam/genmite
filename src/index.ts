@@ -5,7 +5,7 @@ export {
   ReactStatelessComponent
 } from './components';
 
-export { configDefault } from './config';
+export { defaultConfig } from './config';
 
 export {
   Component,

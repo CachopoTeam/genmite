@@ -10,11 +10,11 @@ function main() {
   };
 
   const destinationFolder = 'Destination folder: ';
-  const componentFolder = 'Component folder: ';
+  const componentName = 'Component name: ';
 
   PromptService.ask(destinationFolder).then(answer => {
     folders.destination = answer.trim();
-    return PromptService.ask(componentFolder);
+    return PromptService.ask(componentName);
   })
   .then(answer => {
     folders.component = answer.trim();
