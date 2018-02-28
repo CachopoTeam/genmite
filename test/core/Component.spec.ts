@@ -1,5 +1,6 @@
 import * as path from 'path';
-import { Component, PrettierParser, TypeInterface } from './../../src';
+import { Component, ConfigInterface, PrettierParser, TypeInterface } from './../../src';
+import { defaultConfig } from './../../src/config';
 
 describe('Component suite', () => {
   let comp: Component;
@@ -55,8 +56,22 @@ describe('Component suite', () => {
     expect(filesComponent[0].path).toBe(fullPath);
   });
 
+  it('should get the defaultConfig when calling getConfig', () => {
+    const config = comp.getConfig();
+    expect(config).toEqual(defaultConfig);
+  });
+
   it('should get the path combining destinationFolder and componentFolder', () => {
     expect(comp.getFolder()).toBe(`${destinationFolder}${separator}${componentFolder}`);
+  });
+
+  it('should get the path of destination only if passing config to the component', () => {
+    const config: ConfigInterface = {
+      createFolder: false
+    };
+    const componentWithConfig = new Component(destinationFolder, componentFolder, config);
+
+    expect(componentWithConfig.getFolder()).toBe(destinationFolder);
   });
 
   it('should return the componentFolder', () => {

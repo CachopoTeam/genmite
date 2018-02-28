@@ -1,20 +1,20 @@
 import * as nodePath from 'path';
-import {
-  ComponentInterface,
-  FileInterface,
-  TypeInterface
-} from './../interfaces';
+import { defaultConfig } from '../config';
+import { ComponentInterface, ConfigInterface, FileInterface, TypeInterface } from './../interfaces';
 
 export class Component implements ComponentInterface {
+  private config: ConfigInterface;
   private files: FileInterface[];
   private componentFolder: string;
   private destinationFolder: string;
 
-  constructor(destinationFolder: string, componentFolder: string) {
+  constructor(destinationFolder: string, componentFolder: string, config?: ConfigInterface) {
     this.destinationFolder = destinationFolder;
     this.componentFolder = componentFolder;
+    this.config = config || defaultConfig;
     this.files = [];
   }
+
   /* tslint:disable */
   init(): void {}
   /* tslint:enable */
@@ -31,12 +31,17 @@ export class Component implements ComponentInterface {
         fileExtension: type.fileExtension
       })
     };
-
     this.files.push(file);
   }
 
+  getConfig(): ConfigInterface {
+    return this.config;
+  }
+
   getFolder(): string {
-    return nodePath.join(this.destinationFolder, this.componentFolder);
+    return this.config.createFolder
+      ? nodePath.join(this.destinationFolder, this.componentFolder)
+      : nodePath.join(this.destinationFolder);
   }
 
   getDestinationFolder(): string {

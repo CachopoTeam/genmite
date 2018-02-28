@@ -10,11 +10,11 @@ function main() {
   };
 
   const destinationFolder = 'Destination folder: ';
-  const componentFolder = 'Component folder: ';
+  const componentName = 'Component name: ';
 
   PromptService.ask(destinationFolder).then(answer => {
     folders.destination = answer.trim();
-    return PromptService.ask(componentFolder);
+    return PromptService.ask(componentName);
   })
   .then(answer => {
     folders.component = answer.trim();
@@ -26,9 +26,12 @@ function main() {
 function createComponent(folders) {
   const { destination, component } = folders;
   const service = new ComponentCrafter();
-  const comp = new ReasonReactComponent(destination, component);
+  const config = {
+    createFolder: false
+  };
+  const comp = new ReasonReactComponent(destination, component, config);
   service.createCustom(comp);
   ExecCommandService.execute('refmt', [
-    '--in-place', `${destination}/${component}/${component}.re`
+    '--in-place', `${destination}/${component}.re`
   ]);
 }
