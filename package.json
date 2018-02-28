@@ -1,6 +1,6 @@
 {
   "name": "genmite",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "keywords": [],
   "main": "dist/genmite.umd.js",
@@ -85,6 +85,7 @@
   },
   "devDependencies": {
     "@types/jest": "^22.0.0",
+    "@types/lodash": "^4.14.104",
     "@types/node": "^8.0.0",
     "@types/prettier": "^1.10.0",
     "colors": "^1.1.2",
@@ -111,7 +112,7 @@
     "tslint-config-prettier": "^1.1.0",
     "tslint-config-standard": "^7.0.0",
     "typedoc": "^0.9.0",
-    "typescript": "2.6.2",
+    "typescript": "2.7.2",
     "validate-commit-msg": "^2.12.2"
   },
   "dependencies": {
