@@ -2,7 +2,7 @@ import {
   AngularUtils,
   Component,
   HTMLDefaultParser,
-  SCSSDefaultParser,
+  CSSDefaultParser,
   TypeInterface,
   TypescriptDefaultParser,
  } from 'genmite';
@@ -41,9 +41,9 @@ export class CustomComponent extends Component {
       parser: HTMLDefaultParser()
     };
 
-    const scssType: TypeInterface = {
+    const cssType: TypeInterface = {
       fileExtension: '.component.css',
-      parser: SCSSDefaultParser()
+      parser: CSSDefaultParser()
     };
     const componentFolder = this.getComponentFolder();
     const className = this.angularUtils.generateClassName(componentFolder);
@@ -54,7 +54,7 @@ export class CustomComponent extends Component {
     this.add(indexTsType, this.defaultAngularIndex(componentFolder), 'index');
     this.add(specTsType, this.defaultAngularSpec(componentFolder, className));
     this.add(htmlType, this.defaultAngularHTML(componentFolder, className));
-    this.add(scssType, this.defaultAngularSCSS(componentFolder));
+    this.add(cssType, this.defaultAngularCSS(componentFolder));
   }
 
   private defaultAngularComponent(
@@ -117,7 +117,7 @@ export class CustomComponent extends Component {
     `;
   }
 
-  private defaultAngularSCSS(component: string): string {
+  private defaultAngularCSS(component: string): string {
     return `
       #${component}{}
     `;
