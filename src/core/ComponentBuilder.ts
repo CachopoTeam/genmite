@@ -9,8 +9,9 @@ export class ComponentBuilder implements ComponentBuilderInterface {
   }
 
   build(component: ComponentInterface): void {
-    if (!this.fileSystemWrapper.exists(component.getDestinationFolder())) {
-      throw new Error('The destination folder not exists');
+    const destinationFolder = component.getDestinationFolder();
+    if (!this.fileSystemWrapper.exists(destinationFolder)) {
+      throw new Error(`The destination folder ${destinationFolder} not exists`);
     }
     const files = component.getFiles();
     files.map(file => {

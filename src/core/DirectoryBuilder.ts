@@ -14,7 +14,7 @@ export class DirectoryBuilder implements DirectoryBuilderInterface {
   build(component: ComponentInterface): void {
     const folder = component.getFolder();
     if (this.fileSystemWrapper.exists(folder)) {
-      throw new Error('The directory exists, I cannot create the folder');
+      throw new Error(`The directory ${folder} exists, I cannot create the folder`);
     }
     this.fileSystemWrapper.createDirectory(component.getFolder());
   }
