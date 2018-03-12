@@ -15,7 +15,7 @@ export class ReactStatefulComponent extends Component {
     };
 
     const specJsType: TypeInterface = {
-      fileExtension: 'spec.js',
+      fileExtension: '.spec.js',
       parser: prettierParser
     };
 
@@ -25,15 +25,14 @@ export class ReactStatefulComponent extends Component {
     };
 
     const componentFolder = this.getComponentFolder();
-    const classNameCSS = componentFolder.toLocaleLowerCase();
 
-    this.add(jsType, this.defaultReactJS(componentFolder, classNameCSS));
-    this.add(cssType, this.defaultReactCSS(classNameCSS));
-    this.add(jsType, this.defaultReactIndex(this.getComponentFolder()), 'index');
-    this.add(specJsType, this.defaultReactSpec(this.getComponentFolder()));
+    this.add(jsType, this.defaultReactIndex(componentFolder), 'index');
+    this.add(jsType, this.defaultReactJS(componentFolder));
+    this.add(cssType, this.defaultReactCSS(componentFolder));
+    this.add(specJsType, this.defaultReactSpec(componentFolder));
   }
 
-  private defaultReactJS(className: string, classNameCSS: string): string {
+  private defaultReactJS(className: string): string {
     return `
       import React, { Component } from 'react'
       import PropTypes from 'prop-types'
@@ -47,8 +46,8 @@ export class ReactStatefulComponent extends Component {
 
         render() {
           return (
-            <div className="${classNameCSS}">
-              <h3>${className} Stateful Component generated from the cli</h3>
+            <div className="${className}">
+              <h2>${className} Stateful Component generated from the cli</h2>
             </div>
           );
         }
@@ -76,7 +75,7 @@ export class ReactStatefulComponent extends Component {
     return `
       import React from 'react';
       import { shallow } from 'enzyme';
-      import { ${className} } from './AddArticle';
+      import { ${className} } from './${className}';
 
       describe('${className} suite', () => {
         it('renders ${className} without any state injected', () => {
