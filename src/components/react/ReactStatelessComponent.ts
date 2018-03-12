@@ -15,7 +15,7 @@ export class ReactStatelessComponent extends Component {
     };
 
     const specJsType: TypeInterface = {
-      fileExtension: 'spec.js',
+      fileExtension: '.spec.js',
       parser: prettierParser
     };
 
@@ -25,23 +25,22 @@ export class ReactStatelessComponent extends Component {
     };
 
     const componentFolder = this.getComponentFolder();
-    const classNameCSS = componentFolder.toLowerCase();
 
-    this.add(jsType, this.defaultReactJS(componentFolder, componentFolder.toLowerCase()));
-    this.add(cssType, this.defaultReactCSS(classNameCSS));
     this.add(jsType, this.defaultReactIndex(componentFolder), 'index');
+    this.add(jsType, this.defaultReactJS(componentFolder));
+    this.add(cssType, this.defaultReactCSS(componentFolder));
     this.add(specJsType, this.defaultReactSpec(componentFolder));
   }
 
-  private defaultReactJS(className: string, classNameCSS: string): string {
+  private defaultReactJS(className: string): string {
     return `
       import React from 'react'
       import PropTypes from 'prop-types'
       import './${className}.css'
 
       const ${className} = props => (
-        <div className="${classNameCSS}">
-          <h3>${className} Stateless Component generated from the cli</h3>
+        <div className="${className}">
+          <h2>${className} Stateless Component generated from the cli</h2>
         </div>
       );
 
@@ -67,7 +66,7 @@ export class ReactStatelessComponent extends Component {
     return `
       import React from 'react';
       import { shallow } from 'enzyme';
-      import { ${className} } from './AddArticle';
+      import { ${className} } from './${className}';
 
       describe('${className} suite', () => {
         it('renders ${className} without any state injected', () => {
