@@ -5,7 +5,7 @@ Tool to generate code, right now it's designed to build components.
 ## Install
 
 ```sh
-npm install --save-dev
+npm install genmite --save-dev
 ```
 
 ## Run Examples
