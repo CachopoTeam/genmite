@@ -6,13 +6,11 @@ describe('HelloWorldComponent', () => {
   let component: HelloWorldComponent;
   let fixture: ComponentFixture<HelloWorldComponent>;
 
-  beforeEach(
-    async(() => {
-      TestBed.configureTestingModule({
-        declarations: [HelloWorldComponent]
-      });
-    })
-  );
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [HelloWorldComponent]
+    });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HelloWorldComponent);
