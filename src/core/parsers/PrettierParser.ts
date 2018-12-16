@@ -6,7 +6,7 @@ export class PrettierParser implements FileParserInterface {
 
   constructor(options?: prettier.Options) {
     this._options = {
-      printWidth: 140,
+      printWidth: 80,
       tabWidth: 2,
       semi: true,
       singleQuote: true,

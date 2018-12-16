@@ -24,7 +24,7 @@ export function TypescriptDefaultParser(): PrettierParser {
 
 export function HTMLDefaultParser(): PrettierParser {
   const options: Options = {
-    parser: undefined
+    parser: 'html'
   };
   return new PrettierParser(options);
 }
