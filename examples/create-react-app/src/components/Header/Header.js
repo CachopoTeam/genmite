@@ -4,7 +4,7 @@ import './Header.css';
 
 const Header = props => (
   <div className="header">
-    <h3>Header Stateless Component generated from the cli</h3>
+    <h2>Header Stateless Component generated from the cli</h2>
   </div>
 );
 

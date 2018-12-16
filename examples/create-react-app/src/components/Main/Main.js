@@ -11,7 +11,7 @@ class Main extends Component {
   render() {
     return (
       <div className="main">
-        <h3>Main Stateful Component generated from the cli</h3>
+        <h2>Main Stateful Component generated from the cli</h2>
       </div>
     );
   }
