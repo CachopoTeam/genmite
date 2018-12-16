@@ -21,9 +21,8 @@ describe('PrettierParserOptions Suite', () => {
     expect(typescriptDefaultParser.options.parser).toBe('typescript');
   });
 
-  it('should return a PrettierParser with parser undefined', () => {
-    // TODO: When prettier has the HTML it must be html parser
+  it('should return a PrettierParser with parser html', () => {
     const htmlDefaultParser = HTMLDefaultParser();
-    expect(htmlDefaultParser.options.parser).toBe(undefined);
+    expect(htmlDefaultParser.options.parser).toBe('html');
   });
 });
