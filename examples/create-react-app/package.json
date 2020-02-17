@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "genmite": "1.3.0",
+    "genmite": "1.4.0",
     "react-scripts": "2.1.1"
   },
   "dependencies": {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './Header.css';
 
 const Header = props => (
-  <div className="header">
+  <div className="Header">
     <h2>Header Stateless Component generated from the cli</h2>
   </div>
 );
