@@ -11,7 +11,7 @@ export class PrettierParser implements FileParserInterface {
       semi: true,
       singleQuote: true,
       trailingComma: 'none',
-      parser: 'babylon',
+      parser: 'babel',
       ...options
     };
   }
