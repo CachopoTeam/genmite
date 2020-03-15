@@ -35,7 +35,6 @@ describe('FileSystemWrapper', () => {
     const parsedCode = prettierParser.parse(code);
     const file: FileInterface = {
       code: code,
-      name: 'Header',
       type: type,
       path: 'demo/Header'
     };
