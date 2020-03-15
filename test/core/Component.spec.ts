@@ -39,13 +39,12 @@ describe('Component suite', () => {
     const filesComponent = comp.getFiles();
 
     expect(filesComponent[0].code).toBe(code);
-    expect(filesComponent[0].name).toBe(fileName);
     expect(filesComponent[0].type).toEqual(type);
     expect(filesComponent[0].path).toBe(fullPath);
   });
 
-  it('should add a type with the config property componentUppercase to true', () => {
-    let componentWithUppercase = new Component(destinationFolder, componentFolder, {
+  it('should capitalize the file if the config property componentUppercase to true', () => {
+    const componentWithUppercase = new Component(destinationFolder, componentFolder, {
       componentUppercase: true,
       createFolder: true
     });
@@ -54,9 +53,42 @@ describe('Component suite', () => {
     const filesComponent = componentWithUppercase.getFiles();
 
     expect(filesComponent[0].code).toBe(code);
-    expect(filesComponent[0].name).toBe(fileName.slice(0, 1).toUpperCase() + fileName.slice(1));
     expect(filesComponent[0].type).toEqual(type);
-    expect(filesComponent[0].path).toBe(fullPath);
+    expect(filesComponent[0].path).toBe('demo/article/Article.js');
+  });
+
+  it('should not capitalize the file if the config property componentUppercase to true and the name of the file is index', () => {
+    const componentWithUppercase = new Component(destinationFolder, componentFolder, {
+      componentUppercase: true,
+      createFolder: true
+    });
+    componentWithUppercase.add(type, code, 'index');
+
+    const filesComponent = componentWithUppercase.getFiles();
+
+    expect(filesComponent[0].code).toBe(code);
+    expect(filesComponent[0].type).toEqual(type);
+    expect(filesComponent[0].path).toBe('demo/article/index.js');
+  });
+
+  it('should not capitalize the file if the config property componentUppercase to true and the type is scss', () => {
+    const componentWithUppercase = new Component(destinationFolder, componentFolder, {
+      componentUppercase: true,
+      createFolder: true
+    });
+
+    const typeScss: TypeInterface = {
+      fileExtension: '.scss',
+      parser: new PrettierParser()
+    };
+
+    componentWithUppercase.add(typeScss, code, fileName);
+
+    const filesComponent = componentWithUppercase.getFiles();
+
+    expect(filesComponent[0].code).toBe(code);
+    expect(filesComponent[0].type).toEqual(typeScss);
+    expect(filesComponent[0].path).toBe('demo/article/article.scss');
   });
 
   it('should add a type to the component files without fileName', () => {
@@ -64,7 +96,6 @@ describe('Component suite', () => {
     const filesComponent = comp.getFiles();
 
     expect(filesComponent[0].code).toBe(code);
-    expect(filesComponent[0].name).toBe(fileName);
     expect(filesComponent[0].type).toEqual(type);
     expect(filesComponent[0].path).toBe(fullPath);
   });

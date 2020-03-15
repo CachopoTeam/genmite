@@ -2,6 +2,8 @@ import * as nodePath from 'path';
 import { defaultConfig } from '../config';
 import { ComponentInterface, ConfigInterface, FileInterface, TypeInterface } from './../interfaces';
 
+const capitalize = (str: string) => str.slice(0, 1).toUpperCase() + str.slice(1);
+
 export class Component implements ComponentInterface {
   private config: ConfigInterface;
   private files: FileInterface[];
@@ -20,12 +22,16 @@ export class Component implements ComponentInterface {
   /* tslint:enable */
 
   add(type: TypeInterface, code: string, fileName?: string): void {
-    const componentName = fileName || this.componentFolder;
+    let componentName = fileName || this.componentFolder;
+    const cssExtensions = ['.scss', '.css'];
+    componentName =
+      this.config.componentUppercase &&
+      componentName !== 'index' &&
+      !cssExtensions.includes(type.fileExtension)
+        ? capitalize(componentName)
+        : componentName;
     const file: FileInterface = {
       code: code,
-      name: this.config.componentUppercase
-        ? componentName.slice(0, 1).toUpperCase() + componentName.slice(1)
-        : componentName,
       type: type,
       path: this.getFullPath({
         folder: this.getFolder(),
