@@ -23,7 +23,9 @@ export class Component implements ComponentInterface {
     const componentName = fileName || this.componentFolder;
     const file: FileInterface = {
       code: code,
-      name: componentName,
+      name: this.config.componentUppercase
+        ? componentName.slice(0, 1).toUpperCase() + componentName.slice(1)
+        : componentName,
       type: type,
       path: this.getFullPath({
         folder: this.getFolder(),

@@ -20,9 +20,7 @@ describe('Component suite', () => {
     fileName: string;
     fileExtension: string;
   }) => {
-    return `${pathObject.destinationFolder}${separator}${pathObject.componentFolder}${separator}${
-      pathObject.fileName
-    }${pathObject.fileExtension}`;
+    return `${pathObject.destinationFolder}${separator}${pathObject.componentFolder}${separator}${pathObject.fileName}${pathObject.fileExtension}`;
   };
 
   const fullPath = getFullPath({
@@ -42,6 +40,21 @@ describe('Component suite', () => {
 
     expect(filesComponent[0].code).toBe(code);
     expect(filesComponent[0].name).toBe(fileName);
+    expect(filesComponent[0].type).toEqual(type);
+    expect(filesComponent[0].path).toBe(fullPath);
+  });
+
+  it('should add a type with the config property componentUppercase to true', () => {
+    let componentWithUppercase = new Component(destinationFolder, componentFolder, {
+      componentUppercase: true,
+      createFolder: true
+    });
+    componentWithUppercase.add(type, code, fileName);
+
+    const filesComponent = componentWithUppercase.getFiles();
+
+    expect(filesComponent[0].code).toBe(code);
+    expect(filesComponent[0].name).toBe(fileName.slice(0, 1).toUpperCase() + fileName.slice(1));
     expect(filesComponent[0].type).toEqual(type);
     expect(filesComponent[0].path).toBe(fullPath);
   });

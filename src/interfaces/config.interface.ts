@@ -1,3 +1,4 @@
 export interface ConfigInterface {
-  createFolder: boolean;
+  createFolder?: boolean;
+  componentUppercase?: boolean;
 }
