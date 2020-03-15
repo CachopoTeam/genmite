@@ -1,6 +1,6 @@
 {
   "name": "genmite",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "",
   "keywords": [],
   "main": "dist/genmite.umd.js",
@@ -10,8 +10,8 @@
     "dist"
   ],
   "authors": [
-    "Gabriel García Seco",
-    "Arturo Anguix López"
+    "Arturo Anguix López",
+    "Gabriel García Seco"
   ],
   "repository": {
     "type": "git",
@@ -25,20 +25,15 @@
     "coverage:open": "open ./coverage/lcov-report/index.html",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
     "prebuild": "rimraf dist",
-    "build": "tsc && rollup -c rollup.config.ts && rimraf compiled && typedoc --out dist/docs --target es6 --theme minimal src",
+    "build": "tsc && rollup -c rollup.config.ts",
     "postbuild": "mv dist/types/index.d.ts dist/types/genmite.d.ts",
     "start": "tsc -w & rollup -c rollup.config.ts -w",
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
     "test:prod": "npm run lint && npm run test -- --coverage --no-cache",
     "deploy-docs": "ts-node tools/gh-pages-publish",
     "report-coverage": "cat ./coverage/lcov.info | coveralls",
-    "commit": "git-cz",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "semantic-release-prepare": "ts-node tools/semantic-release-prepare",
-    "precommit": "lint-staged",
-    "prepush": "npm run test:prod && npm run build",
-    "commitmsg": "validate-commit-msg"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "{src,test}/**/*.ts": [
@@ -49,10 +44,6 @@
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
-    },
-    "validate-commit-msg": {
-      "types": "conventional-commit-types",
-      "helpMessage": "Use \"npm run commit\" instead, we use conventional-changelog format :) (https://github.com/commitizen/cz-cli)"
     }
   },
   "jest": {
